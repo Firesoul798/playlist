@@ -6,7 +6,7 @@ var songs = ["Ghost and Stuff","One Hundred Miles and Running","Desperados","No 
 // Make sure they match the same order as your array above
 var imagesLinks = ["https://i.ytimg.com/vi/pb-EwykPTv8/hqdefault.jpg","https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/YoungSinatraIV.jpg/220px-YoungSinatraIV.jpg",
 "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/Uncomfortable_by_Andy_Mineo.jpg/220px-Uncomfortable_by_Andy_Mineo.jpg","https://i.ytimg.com/vi/8Vlej7QUGGE/maxresdefault.jpg"];
-var songLengths=["3:14","5:54","3:36","2:48"]
+var songLengths=["3:14","5:54","3:36","2:48"];
 var artists=["Deadmau5","Logic","Andy Mineo","Joji"];
 var listen=["https://www.youtube.com/watch?v=h7ArUgxtlJs","https://www.youtube.com/watch?v=heqMtBJxfVg"
 ,"https://www.youtube.com/watch?v=RBlUqAjtSL0","https://www.youtube.com/watch?v=8Vlej7QUGGE"];
@@ -20,10 +20,10 @@ function displaySongInfo(){
         $("#images").append("<img src="+cover+">");
     });
     songLengths.forEach(function(time){
-        $("#lengths").append("<p>"+time+"</p>")
+        $("#lengths").append("<p>"+time+"</p>");
     });
     artists.forEach(function(names){
-        $("#artists").append("<p>"+names+"</p>")
+        $("#artists").append("<p>"+names+"</p>");
     });
     listen.forEach(function(links){
         $("#links").append("<a href='"+links+"'>"+"Listen"+"</a>");
@@ -44,18 +44,24 @@ function emptySongInfo(){
 
 function addSongInfo(){
     // BELOW write the code to add new items to each of the arrays
-    //var userSong =("#song").val();
-    //songs.push(userSong);
-     //var userArtist =("#artist").val();
-     //artists.push(userArtist);
+    var userSong =$("#song").val();
+    songs.push(userSong);
+    var userArtist =$("#artist").val();
+     artists.push(userArtist);
+     var userLength= $("#length").val();
+     songLengths.push(userLength);
+     var userImages= $("#image").val();
+     imagesLinks.push(userImages);
+     var userLinks=$("#link").val();
+     listen.push(userLinks);
      
      
 }
 
 $("#add").click(function() {
-    // emptySongInfo();
+    emptySongInfo();
     addSongInfo();
     displaySongInfo();
 });
 
-// displaySongInfo();
+displaySongInfo();
